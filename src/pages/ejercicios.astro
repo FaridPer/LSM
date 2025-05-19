@@ -1,11 +1,54 @@
 ---
 import Layout from "../layouts/Layout.astro"
-
+import { SITE_BASE } from "../config";
 ---
 <Layout>
   <Fragment slot="head">
     <title>Ejercicios</title>
   </Fragment>
   <main class="container my-4 flex-grow-1">
+    <section>
+      <h2 class="mb-3">Ejercicio: ¿Qué seña corresponde a “Ayudar”?</h2>
+      <form id="exercise-form" class="mb-3">
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="ayudar" id="opt1" value="opt1">
+          <label class="form-check-label" for="opt1"><img src={`${SITE_BASE}`+'/cuidar.jpg'} height="100px"></video></label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="ayudar" id="opt2" value="opt2">
+          <label class="form-check-label" for="opt2"><img src={`${SITE_BASE}`+'/ayudar.jpg'} height="100px"></label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="radio" name="ayudar" id="opt3" value="opt3">
+          <label class="form-check-label" for="opt3"><img src={`${SITE_BASE}`+'/aprender.jpg'} alt="" height="100px"></label>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Verificar</button>
+      </form>
+      <p id="exercise-result" class="fw-bold"></p>
+    </section>
   </main>
 </Layout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('exercise-form');
+    const result = document.getElementById('exercise-result');
+    if(form&&result)
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const sel = document.querySelector('input[name="ayudar"]:checked');
+      if (!sel) {
+        result.textContent = 'Selecciona una opción.';
+        result.className = 'text-warning fw-bold';
+        return;
+      }
+      if (sel.value === 'opt2') {
+        result.textContent = '¡Correcto!';
+        result.className = 'text-success fw-bold';
+      } else {
+        result.textContent = 'Incorrecto. Intenta de nuevo.';
+        result.className = 'text-danger fw-bold';
+      }
+    });
+  });
+</script>
