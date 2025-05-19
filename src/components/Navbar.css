@@ -1,6 +1,5 @@
-/* Navbar morado */
 .navbar.my-navbar {
-  background-color: #b89aff !important; /* morado suave */
+  background-color: #b89aff !important; /* Morado pastel */
 }
 
 .navbar .nav-link {
@@ -9,13 +8,7 @@
 }
 
 .navbar .nav-link:hover {
-  color: #f8e59b !important; /* amarillo pastel al pasar */
-}
-
-.navbar-brand {
-  width: 60px;
-  margin: 0;
-  padding: 0;
+  color: #f8e59b !important; /* Amarillo pastel al pasar el mouse */
 }
 
 .navbar-toggler {
@@ -24,4 +17,10 @@
 
 .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-brand {
+  width: 60px;
+  margin: 0;
+  padding: 0;
 }
