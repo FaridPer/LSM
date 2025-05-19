@@ -1,8 +1,25 @@
 .navbar.my-navbar {
-    background-color: #a3c9f7 !important;
-  }
+  background-color: #281E5D !important; /* azul pastel */
+}
 
-.navbar-brand{
+.navbar .nav-link {
+  color: #ffffff !important;
+  font-weight: 500;
+}
+
+.navbar .nav-link:hover {
+  color: #f8e59b !important; /* Amarillo pastel al pasar el mouse */
+}
+
+.navbar-toggler {
+  border-color: #ffffff;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-brand {
   width: 60px;
   margin: 0;
   padding: 0;
