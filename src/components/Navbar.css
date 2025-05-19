@@ -1,33 +1,29 @@
-/* Fondo general del navbar: amarillo pastel */
 .navbar.my-navbar {
-  background-color: #FFF082 !important;
-  border-bottom: 4px solid #A3C9F7; /* línea azul decorativa */
+  background-color: #0f556c !important; /* azul fuerte */
 }
 
-/* Logo */
+.navbar .nav-link {
+  color: #ffffff !important;
+  font-weight: 500;
+}
+
+.navbar .nav-link:hover {
+  color: #f8e59b !important; /* amarillo pastel al pasar */
+}
+
 .navbar-brand {
   width: 60px;
   margin: 0;
   padding: 0;
 }
 
-/* Enlaces del navbar */
-.navbar-nav .nav-link {
-  color: #7026B9; /* morado */
-  font-weight: 600;
-  transition: color 0.3s ease;
+.accordion-button {
+  background-color: #a3c9f7;
+  color: #0f556c;
+  font-weight: bold;
 }
 
-.navbar-nav .nav-link:hover {
-  color: #0F556C; /* azul oscuro alternativo */
-  text-decoration: underline;
-}
-
-/* Botón hamburguesa */
-.navbar-toggler {
-  border: 2px solid #A3C9F7;
-}
-
-.navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(163, 201, 247, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+.accordion-button:not(.collapsed) {
+  background-color: #0f556c;
+  color: white;
 }
