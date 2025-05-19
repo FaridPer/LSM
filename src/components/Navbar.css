@@ -1,9 +1,29 @@
 .navbar.my-navbar {
-    background-color: #a3c9f7 !important;
-  }
+    background-color: #FFF082 !important; /* Amarillo pastel */
+}
 
-.navbar-brand{
-  width: 60px;
-  margin: 0;
-  padding: 0;
+.navbar-brand {
+    width: 60px;
+    margin: 0;
+    padding: 0;
+}
+
+/* Opcional: Colores para los links del navbar */
+.navbar-nav .nav-link {
+    color: #7026B9; /* Morado intenso */
+    font-weight: 600;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #4e2c7c; /* Morado más oscuro al hover */
+    text-decoration: underline;
+}
+
+/* Estilo para el toggler (icono hamburguesa) */
+.navbar-toggler {
+    border-color: #7026B9;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(112, 38, 185, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
