@@ -1,0 +1,38 @@
+---
+import { SITE_BASE } from "../config";
+---
+<div class="container mt-4">
+        <h1>Página de Juegos</h1>
+        <p>Aprende jugando.</p>
+        <div class='juegos'>
+            <div class="card" style={{width: "18rem"}}>
+              <div  class='card-img-top' style={{height: "180px"}}>
+                <img src={`${SITE_BASE}`+'/miniatura-memorama.jpg'} height={'180px'} width={'100%'}  alt="Cargando" />
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Memorama</h5>
+                <p class="card-text">Prueba tus habilidades de memoria.</p>
+                <a href="https://lengua-de-senas-lovat.vercel.app/memorama.html" class="btn btn-primary">Jugar</a>
+              </div>
+            </div>
+
+            <div class="card" style={{width: "18rem"}}>
+              <div  class='card-img-top' style={{height: "180px"}} >
+                <img src={`${SITE_BASE}`+'/miniatura-preguntas.jpg'} height={'180px'} width={'100%'}  alt="Cargando" />
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Cuestionario</h5>
+                <p class="card-text">Adivina la seña de dactilología.</p>
+                <a href="https://lengua-de-senas-lovat.vercel.app/minicuestionario.html" class="btn btn-primary">Jugar</a>
+              </div>
+            </div>
+        </div>
+</div>
+
+<style>
+  .juegos{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+</style>

@@ -1,9 +1,8 @@
 ---
 import Navbar from '../components/Navbar.jsx';
-import JuegosComponent from '../components/Juegos.jsx'
 import Layout from '../layouts/Layout.astro';
+import JuegosComponent from '../components/JuegosComponent.astro'
 ---
-
 <Layout>
   <Fragment slot="head">
      <title>Aprende con juegos </title>
@@ -11,5 +10,11 @@ import Layout from '../layouts/Layout.astro';
   <main class="container my-4 flex-grow-1">
   <JuegosComponent />
   </main>
-</Layout>
-  
+</Layout>  
+<style>
+  .juegos{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+</style>
