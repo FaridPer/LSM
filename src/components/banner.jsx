@@ -7,18 +7,22 @@ export default function CarruselProgramaSkeleton() {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const t = setTimeout(() => setLoaded(true), 2000); // Simula carga
+    const t = setTimeout(() => setLoaded(true), 5000); // Simula carga
     return () => clearTimeout(t);
   }, []);
 
   if (!loaded) {
     return (
-        <img src={`${SITE_BASE}`+'/welcome.jpg'} alt="Bienvenida" class="img-fluid align-right" />
+      <div  class="img-fluid align-right">
+        <img src={`${SITE_BASE}`+'/welcome.jpg'} alt="Bienvenida" height={"85px"} />
+      </div>
     );
   }
 
   // Si ya tienes el contenido en Index.astro, simplemente no renderices nada más
 return (
-<img src={`${SITE_BASE}`+'/welcome.jpg'} alt="Bienvenida" class="img-fluid align-right" />
+      <div  class="img-fluid align-right">
+        <img src={`${SITE_BASE}`+'/welcome.jpg'} alt="Bienvenida" />
+      </div>
 );
 }
