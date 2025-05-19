@@ -1,0 +1,74 @@
+---
+import { SITE_BASE } from "../config";
+---
+<div class="container mt-4">
+
+  <h2 class="mb-3">Recursos</h2>
+
+  <!-- Acordeón con 2 secciones: Abecedario y Diccionario -->
+  <div class="accordion" id="mainAccordion">
+    
+    <!-- Abecedario -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingAbecedario">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAbecedario" aria-expanded="true" aria-controls="collapseAbecedario">
+          Abecedario
+        </button>
+      </h2>
+      <div id="collapseAbecedario" class="accordion-collapse collapse show" aria-labelledby="headingAbecedario" data-bs-parent="#mainAccordion">
+        <div class="accordion-body">
+          <img src={`${SITE_BASE}`+'/abecedario.jpg'} class="img-thumbnail" alt="Imagen ejemplo" style="max-width: 200px; cursor: pointer;" data-bs-toggle="modal" data-bs-target="#imageModal" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Diccionario -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingDiccionario">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDiccionario" aria-expanded="false" aria-controls="collapseDiccionario">
+          Diccionario
+        </button>
+      </h2>
+      <div id="collapseDiccionario" class="accordion-collapse collapse" aria-labelledby="headingDiccionario" data-bs-parent="#mainAccordion">
+        <div class="accordion-body">
+          <ul class="list-group list-group-flush mb-3">
+            <li class="list-group-item">
+                <h4>Ayudar</h4>
+                <video src={`${SITE_BASE}`+'/videos/Ayudar.mp4'} controls width="800px"></video>
+            </li>
+            <li class="list-group-item">
+                <h4>Aprender</h4>
+                <video src={`${SITE_BASE}`+'/videos/Aprender.mp4'} controls width="800px"></video>
+            </li>
+            <li class="list-group-item">
+                <h4>Buscar</h4>
+                <video src={`${SITE_BASE}`+'/videos/Buscar.mp4'} controls width="800px"></video>
+            </li>
+            <li class="list-group-item">
+                <h4>Comunicar</h4>
+                <video src={`${SITE_BASE}`+'/videos/Comunicar.mp4'} controls width="800px"></video>
+            </li>
+          </ul>
+          <a href={`${SITE_BASE}`+`diccionario`} class="btn btn-primary">Ir al Diccionario completo</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Modal para imagen -->
+  <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="imageModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="imageModalLabel">Recurso 1</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <img src={`${SITE_BASE}`+'/abecedario.jpg'} class="img-fluid" alt="Imagen ampliada" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
