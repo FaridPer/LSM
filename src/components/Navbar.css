@@ -1,29 +1,33 @@
+/* Fondo general del navbar: amarillo pastel */
 .navbar.my-navbar {
-    background-color: #FFF082 !important; /* Amarillo pastel */
+  background-color: #FFF082 !important;
+  border-bottom: 4px solid #A3C9F7; /* línea azul decorativa */
 }
 
+/* Logo */
 .navbar-brand {
-    width: 60px;
-    margin: 0;
-    padding: 0;
+  width: 60px;
+  margin: 0;
+  padding: 0;
 }
 
-/* Opcional: Colores para los links del navbar */
+/* Enlaces del navbar */
 .navbar-nav .nav-link {
-    color: #7026B9; /* Morado intenso */
-    font-weight: 600;
+  color: #7026B9; /* morado */
+  font-weight: 600;
+  transition: color 0.3s ease;
 }
 
 .navbar-nav .nav-link:hover {
-    color: #4e2c7c; /* Morado más oscuro al hover */
-    text-decoration: underline;
+  color: #0F556C; /* azul oscuro alternativo */
+  text-decoration: underline;
 }
 
-/* Estilo para el toggler (icono hamburguesa) */
+/* Botón hamburguesa */
 .navbar-toggler {
-    border-color: #7026B9;
+  border: 2px solid #A3C9F7;
 }
 
 .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(112, 38, 185, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(163, 201, 247, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
 }
