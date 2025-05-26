@@ -1,19 +1,59 @@
 ---
-const allWords = await Astro.glob('../palabras/*.md')
+const allWords = await Astro.glob('../palabras/*.md');
 ---
 
 <html>
-  <head><title>Diccionario</title></head>
+  <head>
+    <title>Diccionario</title>
+    <!-- Carga Fuse.js con defer -->
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2" defer></script>
+  </head>
   <body>
     <h1>Diccionario de Lengua de Señas</h1>
     <input id="buscador" placeholder="Buscar palabra..." />
     <div id="resultados">
       {allWords.map((p) => (
-        <div>
+        <div class="entrada">
           <h3>{p.frontmatter.palabra}</h3>
           <video src={p.frontmatter.video} controls width="300"></video>
         </div>
       ))}
     </div>
+
+    <!-- Script que usa Fuse.js también con defer -->
+    <script defer>
+      window.addEventListener('DOMContentLoaded', () => {
+        const entradas = Array.from(document.querySelectorAll('.entrada')).map(div => ({
+          palabra: div.querySelector('h3').textContent,
+          element: div
+        }));
+
+        const fuse = new Fuse(entradas, {
+          keys: ['palabra'],
+          threshold: 0.3,
+        });
+
+        const buscador = document.getElementById('buscador');
+
+        buscador.addEventListener('input', () => {
+          const query = buscador.value.trim();
+
+          if (query === '') {
+            entradas.forEach(({element}) => element.style.display = 'block');
+            return;
+          }
+
+          const results = fuse.search(query);
+
+          // Ocultar todo
+          entradas.forEach(({element}) => element.style.display = 'none');
+
+          // Mostrar los resultados
+          results.forEach(({item}) => {
+            item.element.style.display = 'block';
+          });
+        });
+      });
+    </script>
   </body>
 </html>
