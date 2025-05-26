@@ -1,22 +1,49 @@
 ---
+const clientOnly = true;
 import { SITE_BASE } from "../config";
 ---
-<div class="container-const">
-<div class="wrapper">
-   <h1>SITIO EN CONSTRUCCIÓN</h1>
-  <img src={`${SITE_BASE}`+`/construccion.svg`} alt="">
-</div>
-  
-</div>
 
-<style>
-    .container-const{
-        display: flex;
-        justify-content: center;
-        text-align: center;
-    }
-    .wrapper{
-        display: flex;
-        flex-direction: column;
-    }
-</style>
+<html>
+  <head><title>Diccionario</title></head>
+  <body>
+    <h1>Diccionario de Lengua de Señas</h1>
+    <input id="buscador" placeholder="Buscar palabra..." />
+    <div id="resultados">Cargando datos...</div>
+
+    <script>
+        import { SITE_BASE } from "../config";
+      function normalizar(texto) {
+        return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+      }
+
+      async function cargarDatos() {
+        const res = await fetch(`${SITE_BASE}`+'/data/datos.json');
+        return await res.json();
+      }
+
+      function buscar(consulta, palabras) {
+        const norm = normalizar(consulta);
+        return palabras.filter(({ palabra, sinonimos = [] }) => {
+          return [palabra, ...sinonimos].some(p => normalizar(p).includes(norm));
+        });
+      }
+
+      cargarDatos().then(palabras => {
+        const input = document.getElementById("buscador");
+        const resultados = document.getElementById("resultados");
+
+        input.addEventListener("input", () => {
+          const encontrados = buscar(input.value, palabras);
+          resultados.innerHTML = encontrados.map(p => `
+            <div>
+              <h3>${p.palabra}</h3>
+              <video src="${p.video}" controls width="300"></video>
+            </div>
+          `).join("") || "<p>No se encontraron coincidencias.</p>";
+        });
+
+        resultados.innerHTML = "<p>Escribe una palabra para buscar.</p>";
+      });
+    </script>
+  </body>
+</html>
