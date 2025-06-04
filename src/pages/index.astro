@@ -3,121 +3,255 @@ import { SITE_BASE } from '../config';
 import Layout from '../layouts/Layout.astro';
 ---
 <Layout>
-    <Fragment slot="head">
-        <title>Página de Recursos LSM | UVP </title>
-    </Fragment>
-    <main class="container my-4 flex-grow-1">
-        <div class="row align-items-center">
-            <div class="col-md-12">
-                <h1 class="mb-3">Plataforma lengua de señas mexicana</h1>
-                <p class="lead">
-                    En este curso de lengua de señas mexicana aprenderás a aplicar los fundamentos de la comunicación en señas, con el fin de fomentar la inclusión, la accesibilidad y la empatía hacia personas con discapacidad auditiva.
-                </p>
+  <Fragment slot="head">
+    <title>Página de Recursos LSM | UVP</title>
+  </Fragment>
 
-                <!-- Contenedor del carrusel y el programa -->
-                <div class="carousel-container mt-4" >
-                    <!-- Carrusel -->
-                    <div class="carousel-col" style={{height:'350px'}}>
-                        <div id="carouselSentimiento" class="carousel slide carousel-fade mt-4" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <img src={`${SITE_BASE}`+'/1.jpg'} class="d-block w-100" alt="Imagen 1" />
-                                </div>
-                                <div class="carousel-item">
-                                    <img src={`${SITE_BASE}`+'/2.jpg'} class="d-block w-100" alt="Imagen 2" />
-                                </div>
-                                <div class="carousel-item">
-                                    <img src={`${SITE_BASE}`+'/3.jpg'} class="d-block w-100" alt="Imagen 3" />
-                                </div>
-                                <div class="carousel-item">
-                                    <img src={`${SITE_BASE}`+'/4.jpg'} class="d-block w-100" alt="Imagen 4" />
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carouselSentimiento" data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carouselSentimiento" data-bs-slide="next">
-                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            </button>
-                        </div>
-                    </div>
-                    <!-- Programa del curso con submenús desplegables -->
-                    <div class="programa-col ms-4">
-                        <div  class="img-fluid align-right">
-                            <img src={`${SITE_BASE}`+'/welcome.jpg'} alt="Bienvenida" height={"85px"} />
-                        </div>
-                        <div class="programa-curso mt-5">
-                            <h2>Temas:</h2>
-                            <div class="accordion" id="programaAccordion">
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingUnidad1">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUnidad1" aria-expanded="true" aria-controls="collapseUnidad1">
-                                           Fundamentos en inclusión y discapacidad auditiva
-                                        </button>
-                                    </h2>
-                                    <div id="collapseUnidad1" class="accordion-collapse collapse" aria-labelledby="headingUnidad1" data-bs-parent="#programaAccordion">
-                                        <div class="accordion-body">
-                                            Aquí se exploran los principios fundamentales de la inclusión y las bases de la discapacidad auditiva.
-                                        </div>
-                                    </div>
-                                </div>
+  <main class="container my-4 flex-grow-1">
+    <!-- Título y descripción -->
+    <div class="row">
+      <div class="col-12 text-center">
+        <h1 class="mb-3 animate__animated animate__fadeInDown">Plataforma Lengua de Señas Mexicana</h1>
+        <p class="lead animate__animated animate__fadeInUp">
+          Bienvenido a LSM UVP, el espacio digital donde estudiantes de la Universidad del Valle de Puebla pueden sumergirse en el aprendizaje práctico y completo de la Lengua de Señas Mexicana. Explora recursos interactivos, tutoriales en video, ejercicios prácticos, y mucho más para que tu experiencia de aprendizaje sea dinámica y efectiva.
+        </p>
+      </div>
+    </div>
 
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingUnidad2">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUnidad2" aria-expanded="true" aria-controls="collapseUnidad2">
-                                            Lengua de Señas Mexicana: Historia y origen
-                                        </button>
-                                    </h2>
-                                    <div id="collapseUnidad2" class="accordion-collapse collapse" aria-labelledby="headingUnidad2" data-bs-parent="#programaAccordion">
-                                        <div class="accordion-body">
-                                            En esta unidad se aborda la historia y origen de la Lengua de Señas Mexicana (LSM), sus características y su importancia en la comunicación de la comunidad sorda.
-                                        </div>
-                                    </div>
-                                </div>
+    <!-- Imagen de bienvenida centrada sobre el carrusel -->
+    <div class="row mt-4">
+      <div class="col-12 text-center">
+        <img
+          src={`${SITE_BASE}/welcome.jpg`}
+          alt="Bienvenida a LSM UVP"
+          height="85"
+          class="animate__animated animate__zoomIn mx-auto d-block"
+        />
+      </div>
+    </div>
 
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingUnidad3">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUnidad3" aria-expanded="true" aria-controls="collapseUnidad3">
-                                            Estructura gramatical de la Lengua de Señas Mexicana
-                                        </button>
-                                    </h2>
-                                    
-                                </div>
-
-                                <div class="accordion-item">
-                                    <h2 class="accordion-header" id="headingUnidad4">
-                                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseUnidad4" aria-expanded="true" aria-controls="collapseUnidad4">
-                                            Uso de la Lengua de Señas Mexicana en la vida diaria
-                                        </button>
-                                    </h2>
-                                    <div id="collapseUnidad4" class="accordion-collapse collapse" aria-labelledby="headingUnidad4" data-bs-parent="#programaAccordion">
-                                        <div class="accordion-body">
-                                            En esta unidad se explorarán los usos cotidianos de la Lengua de Señas Mexicana, cómo interactuar con personas sordas en diferentes contextos y situaciones.
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Línea separadora punteada -->
-                <hr class="dotted-separator">
+    <!-- Sección de Carrusel y Presentación -->
+    <div class="row align-items-center mt-4">
+      <!-- Carrusel -->
+      <div class="col-md-7">
+        <div class="carousel-col" style="height: 350px;">
+          <div
+            id="carouselSentimiento"
+            class="carousel slide carousel-fade animate__animated animate__fadeInUp"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img
+                  src={`${SITE_BASE}/1.jpg`}
+                  class="d-block w-100"
+                  alt="Aprendizaje de LSM"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src={`${SITE_BASE}/2.jpg`}
+                  class="d-block w-100"
+                  alt="Comunidad Sorda"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src={`${SITE_BASE}/3.jpg`}
+                  class="d-block w-100"
+                  alt="Tutorías en Video"
+                />
+              </div>
+              <div class="carousel-item">
+                <img
+                  src={`${SITE_BASE}/4.jpg`}
+                  class="d-block w-100"
+                  alt="Participación Estudiantil"
+                />
+              </div>
             </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselSentimiento"
+              data-bs-slide="prev"
+            >
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselSentimiento"
+              data-bs-slide="next"
+            >
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </button>
+          </div>
         </div>
-    </main>
+      </div>
+
+      <!-- Presentación Detallada -->
+      <div class="col-md-5 mt-4 mt-md-0">
+        <div class="platform-info">
+          <h2 class="animate__animated animate__fadeInLeft">¿Qué es LSM UVP?</h2>
+          <p class="animate__animated animate__fadeInLeft animate__delay-1s">
+            LSM UVP es una plataforma interactiva creada por y para estudiantes de la Universidad del Valle de Puebla. Su propósito es ofrecer un espacio integral donde puedas:
+          </p>
+          <ul class="list-unstyled animate__animated animate__fadeInLeft animate__delay-2s">
+            <li>🔹 Acceder a tutoriales en video con instructores certificados en LSM.</li>
+            <li>🔹 Realizar ejercicios prácticos con retroalimentación automatizada.</li>
+            <li>🔹 Descargar guías en PDF que cubren desde los fundamentos hasta niveles avanzados.</li>
+            <li>🔹 Unirte a foros de discusión y grupos de estudio para compartir dudas y experiencias.</li>
+            <li>🔹 Participar en retos semanales que refuerzan la práctica y el uso cotidiano de LSM.</li>
+          </ul>
+
+          <hr class="my-3" />
+
+          <h2 class="animate__animated animate__fadeInLeft animate__delay-3s">¿Qué es LSM?</h2>
+          <p class="animate__animated animate__fadeInLeft animate__delay-4s">
+            LSM (Lengua de Señas Mexicana) es el sistema de comunicación visual-gestual empleado por la comunidad sorda en México. A diferencia del español hablado, la LSM:
+          </p>
+          <ul class="list-unstyled animate__animated animate__fadeInLeft animate__delay-5s">
+            <li>🔹 Utiliza movimientos de manos, expresiones faciales y corporales para transmitir significado.</li>
+            <li>🔹 Posee su propia gramática y sintaxis; el orden de las palabras no es el mismo que en el español oral.</li>
+            <li>🔹 Es un idioma con riqueza cultural que refleja la identidad y la historia de la comunidad sorda mexicana.</li>
+            <li>🔹 Promueve la inclusión social al permitir una comunicación directa y natural entre personas sordas y oyentes.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Línea separadora punteada -->
+    <hr class="dotted-separator my-5" />
+
+    <!-- Sección Características Principales -->
+    <div class="row mb-5">
+      <div class="col-12 text-center mb-4">
+        <h2 class="animate__animated animate__fadeInUp">Características Principales</h2>
+        <p class="animate__animated animate__fadeInUp animate__delay-1s">
+          Descubre por qué LSM UVP es la herramienta ideal para tu formación en lengua de señas.
+        </p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 animate__animated animate__fadeInLeft">
+          <div class="card-body">
+            <h5 class="card-title">Tutorías Interactivas</h5>
+            <p class="card-text">
+              Contenido en video con instructores certificados que explican paso a paso cada signo, permitiéndote pausar y repetir las lecciones hasta dominar cada movimiento.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 animate__animated animate__fadeInUp">
+          <div class="card-body">
+            <h5 class="card-title">Ejercicios Prácticos</h5>
+            <p class="card-text">
+              Actividades interactivas que evalúan tu progreso, con retroalimentación inmediata. Practica desde el vocabulario básico hasta diálogos completos.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card h-100 animate__animated animate__fadeInRight">
+          <div class="card-body">
+            <h5 class="card-title">Material Descargable</h5>
+            <p class="card-text">
+              Guías en PDF, hojas de práctica y manuales completos que podrás descargar y consultar en cualquier momento, incluso sin conexión a internet.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección Recursos Disponibles -->
+    <div class="row mb-5">
+      <div class="col-12 text-center mb-4">
+        <h2 class="animate__animated animate__fadeInUp">Recursos Disponibles</h2>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="border rounded p-4 h-100 animate__animated animate__fadeInLeft">
+          <h5>Videos Tutoriales Destacados</h5>
+          <p>
+            - Introducción a los saludos y presentaciones básicas.<br />
+            - Conversaciones cotidianas en LSM: solicitar indicaciones, hacer compras, presentarse en clase.<br />
+            - Gramática visual: expresión de emociones, tiempos verbales y uso del espacio.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-6 mb-4">
+        <div class="border rounded p-4 h-100 animate__animated animate__fadeInRight">
+          <h5>Documentos y Manuales</h5>
+          <p>
+            - Manual de gramática LSM (PDF interactivo).<br />
+            - Vocabulario ilustrado: más de 500 signos con descripción paso a paso.<br />
+            - Ejercicios de comprensión auditiva: evaluación de lecturas y videos.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección ¿Cómo Funciona? -->
+    <div class="row mb-5">
+      <div class="col-12 text-center mb-4">
+        <h2 class="animate__animated animate__fadeInUp">¿Cómo Funciona?</h2>
+        <p class="animate__animated animate__fadeInUp animate__delay-1s">
+          Sigue tu ruta de aprendizaje en tres pasos sencillos:
+        </p>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="text-center animate__animated animate__fadeInLeft">
+          <span class="display-4">1</span>
+          <h6>Regístrate Gratis</h6>
+          <p>
+            Crea tu cuenta UVP usando tu correo institucional. Una vez registrado, tendrás acceso inmediato a todos los recursos de la plataforma.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="text-center animate__animated animate__fadeInUp">
+          <span class="display-4">2</span>
+          <h6>Elige tu Nivel</h6>
+          <p>
+            Selecciona desde nivel básico hasta avanzado. Nuestro sistema te recomienda contenidos según tu progreso y tiempo disponible para estudiar.
+          </p>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="text-center animate__animated animate__fadeInRight">
+          <span class="display-4">3</span>
+          <h6>Practica y Conecta</h6>
+          <p>
+            Completa ejercicios semanales y únete a foros de la comunidad. Comparte tus dudas, practica con compañeros y recibe retroalimentación de instructores.
+          </p>
+        </div>
+      </div>
+    </div>
+
+   <!-- Sección Llamado a la Acción -->
+    <div class="row mb-5">
+      <div class="col-12 text-center">
+        <div class="animate__animated animate__pulse animate__infinite">
+          <h2>¡Inscríbete Hoy Mismo!</h2>
+          <p>
+            Únete a cientos de estudiantes que ya están aprendiendo LSM. Regístrate gratis y comienza tu camino hacia la inclusión y la comunicación efectiva.
+          </p>
+          <a href="/registr#o" class="btn btn-primary btn-lg">Crear Cuenta UVP</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Línea separadora final -->
+    <hr class="dotted-separator my-5" />
+  </main>
+
+  <!-- Animación del Carrusel -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const carousel = document.getElementById('carouselSentimiento');
+      if (carousel) {
+        carousel.classList.add('animate__animated', 'animate__fadeInUp');
+      }
+    });
+  </script>
 </Layout>
-    <!-- Footer -->
-
-
-    <!-- Animación del Carrusel -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const carousel = document.getElementById('carouselSentimiento');
-            if (carousel){
-                carousel.classList.add('animate__animated', 'animate__fadeInUp');
-            }     
-        });
-    </script>
-</body>
-</html>
