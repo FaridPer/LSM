@@ -1,26 +1,353 @@
 ---
-
+// Si este archivo es un componente (por ejemplo, `Footer.astro`), no necesitas lógica adicional en el bloque frontmatter.
+// Si es una página, simplemente déjalo vacío.
 ---
-    <footer class="footer-custom text-white py-4 mt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 mb-3 mb-md-0">
-                    <h5 class="fw-bold">Legales</h5>
-                    <ul class="list-unstyled">
-                        <li>
-                            <a href="#" class="text-white">Aviso de privacidad</a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-white">Términos de uso</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-6 text-md-end">
-                    <h5 class="fw-bold">Ayuda</h5>
-                    <button class="btn btn-outline-light mt-2"><a href="https://docs.google.com/forms/d/e/1FAIpQLSeXarqcyBrMtFCQQElCV2KulZk2MjGFQVPgEB140LJE1qtCsQ/viewform?usp=sharing&ouid=105604054978536267449">
-                    Contáctanos
-                    </a></button>
-                </div>
-            </div>
+<!-- ==========================
+     ESTILOS GLOBALES
+     ========================== -->
+<style is:global>
+  /*--------------------------------------------------
+    ESTILOS PARA MODALES Y FOOTER
+  --------------------------------------------------*/
+  :root {
+    --color-primary: #5F9ACA;       /* Azul pastel */
+    --color-primary-dark: #4A89D6;  /* Azul más oscuro (hover) */
+    --color-secondary: #F0F4F8;     /* Gris muy claro con tinte azulado */
+    --color-text: #333333;          /* Texto oscuro principal */
+    --color-footer: #374785;        /* Azul marino intenso para footer */
+  }
+
+  /* Fondo general (mantiene el degradado existente) */
+  body {
+    background: linear-gradient(180deg, var(--color-secondary) 0%, #FFFFFF 100%);
+    color: var(--color-text);
+  }
+
+  /*--------------------------------------------------
+    FOOTER
+  --------------------------------------------------*/
+  .footer-custom {
+    background-color: var(--color-footer);
+    color: #FFFFFF;
+    padding: 2rem 0;
+  }
+  .footer-custom h5 {
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+  .footer-custom .text-white {
+    color: #FFFFFF !important;
+  }
+  .footer-custom a.text-white:hover {
+    color: var(--color-primary-dark) !important;
+    text-decoration: underline;
+  }
+  .footer-custom .btn-outline-light {
+    border-color: #FFFFFF !important;
+    color: #FFFFFF !important;
+    border-radius: 2rem;
+    border-width: 2px;
+  }
+  .footer-custom .btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  /*--------------------------------------------------
+    MODALES (Bootstrap 5)
+  --------------------------------------------------*/
+  .modal-content {
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+
+  /* Encabezado del modal */
+  .modal-header {
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    border-bottom: none;
+  }
+  .modal-header .modal-title {
+    margin: 0;
+    font-weight: 600;
+  }
+  .modal-header .btn-close {
+    filter: invert(1);
+  }
+
+  /* Cuerpo del modal */
+  .modal-body {
+    background-color: #FFFFFF;
+    color: var(--color-text);
+    padding: 1.5rem;
+  }
+
+  /* Pie del modal */
+  .modal-footer {
+    background-color: var(--color-secondary);
+    border-top: none;
+    padding: 1rem 1.5rem;
+  }
+  .modal-footer .btn-secondary {
+    background-color: #A0AEC0; /* gris azulado suave */
+    border: none;
+    border-radius: 0.375rem;
+    color: #FFFFFF;
+  }
+  .modal-footer .btn-secondary:hover {
+    background-color: #718096; /* gris más oscuro */
+  }
+  .modal-footer .btn-primary {
+    background-color: var(--color-primary);
+    border: none;
+    border-radius: 0.375rem;
+    color: #FFFFFF;
+  }
+  .modal-footer .btn-primary:hover {
+    background-color: var(--color-primary-dark);
+  }
+
+  /* Asegurar que el título y el texto del modal tengan buen contraste */
+  .modal-title {
+    color: #FFFFFF;
+  }
+  .modal-body p,
+  .modal-body h6 {
+    margin-bottom: 1rem;
+  }
+
+  /* Para inputs dentro del modal */
+  .modal-body .form-control {
+    border: 1px solid #CBD5E0;
+    border-radius: 0.375rem;
+  }
+  .modal-body .form-control:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 0.2rem rgba(95, 154, 202, 0.25);
+  }
+
+  /*--------------------------------------------------
+    ARRANQUE RÁPIDO PARA BOTONES QUE ACTIVAN MODALES
+  --------------------------------------------------*/
+  [data-bs-toggle="modal"] {
+    cursor: pointer;
+  }
+  [data-bs-toggle="modal"]:hover {
+    color: var(--color-primary-dark);
+  }
+</style>
+
+<!-- ==========================
+     FOOTER CON MODALES
+     ========================== -->
+<footer class="footer-custom text-white py-4 mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mb-3 mb-md-0">
+        <h5 class="fw-bold">Legales</h5>
+        <ul class="list-unstyled">
+          <li>
+            <a href="#" class="text-white" data-bs-toggle="modal" data-bs-target="#privacyModal">
+              Aviso de privacidad
+            </a>
+          </li>
+          <li>
+            <a href="#" class="text-white" data-bs-toggle="modal" data-bs-target="#termsModal">
+              Términos de uso
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-6 text-md-end">
+        <h5 class="fw-bold">Ayuda</h5>
+        <button class="btn btn-outline-light mt-2" data-bs-toggle="modal" data-bs-target="#contactModal">
+          Contáctanos
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: AVISO DE PRIVACIDAD -->
+  <div
+    class="modal fade"
+    id="privacyModal"
+    tabindex="-1"
+    aria-labelledby="privacyModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="privacyModalLabel">Aviso de Privacidad</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
         </div>
-    </footer>
+        <div class="modal-body">
+          <p>
+            En esta sección describimos cómo recopilamos, usamos y protegemos tus datos personales de acuerdo con la normativa vigente.
+          </p>
+          <h6>1. Responsable del Tratamiento</h6>
+          <p>
+            El responsable del tratamiento de tus datos es: Nombre de la Empresa, con domicilio en Calle Falsa 123, Ciudad, País.
+          </p>
+          <h6>2. Finalidad</h6>
+          <p>
+            Tus datos se utilizan para mejorar la experiencia del usuario, enviar notificaciones relevantes y ofrecer soporte personalizado.
+          </p>
+          <h6>3. Derechos ARCO</h6>
+          <p>
+            Puedes ejercer tus derechos de Acceso, Rectificación, Cancelación u Oposición (ARCO) enviando un correo a privacidad@ejemplo.com.
+          </p>
+          <!-- Agrega aquí todo el texto necesario de tu aviso de privacidad -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: TÉRMINOS DE USO -->
+  <div
+    class="modal fade"
+    id="termsModal"
+    tabindex="-1"
+    aria-labelledby="termsModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="termsModalLabel">Términos de Uso</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Bienvenido a nuestra plataforma. Al utilizar este sitio, aceptas los siguientes términos y condiciones:
+          </p>
+          <h6>1. Aceptación de los Términos</h6>
+          <p>
+            El acceso y uso de este sitio web implica aceptar estos términos de uso sin reservas.
+          </p>
+          <h6>2. Uso del Contenido</h6>
+          <p>
+            Todo el contenido es propiedad de Nombre de la Empresa. Queda prohibida su reproducción sin autorización.
+          </p>
+          <h6>3. Responsabilidades del Usuario</h6>
+          <p>
+            El usuario se compromete a no utilizar la plataforma para actividades ilícitas o que infrinjan derechos de terceros.
+          </p>
+          <!-- Completa con el resto de tus términos de uso -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: CONTÁCTANOS -->
+  <div
+    class="modal fade"
+    id="contactModal"
+    tabindex="-1"
+    aria-labelledby="contactModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="contactModalLabel">Contáctanos</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <form id="contactForm">
+            <div class="mb-3">
+              <label for="contactName" class="form-label">Nombre</label>
+              <input
+                type="text"
+                class="form-control"
+                id="contactName"
+                placeholder="Tu nombre completo"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="contactEmail" class="form-label">Correo electrónico</label>
+              <input
+                type="email"
+                class="form-control"
+                id="contactEmail"
+                placeholder="ejemplo@dominio.com"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label for="contactMessage" class="form-label">Mensaje</label>
+              <textarea
+                class="form-control"
+                id="contactMessage"
+                rows="4"
+                placeholder="Escribe tu mensaje aquí"
+                required
+              ></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary" id="contactSendBtn">Enviar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ==========================
+    CARGA DE SWEETALERT2 Y JS CLIENTE
+     ========================== -->
+<!-- 1) Esta línea carga SweetAlert2 antes de nuestro código que hace `Swal.fire(...)`. -->
+<script is:global src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- 2) Nuestro JS para capturar el clic, validación y mostrar las alertas debe ejecutarse en el cliente. -->
+<script is:global>
+  document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contactForm');
+    const sendBtn = document.getElementById('contactSendBtn');
+    const contactModal = document.getElementById('contactModal');
+
+    if (!contactForm || !sendBtn || !contactModal) return;
+
+    sendBtn.addEventListener('click', (event) => {
+      event.preventDefault(); // Evitamos que el botón trate de enviar un form tradicional
+
+      const name = document.getElementById('contactName').value.trim();
+      const email = document.getElementById('contactEmail').value.trim();
+      const message = document.getElementById('contactMessage').value.trim();
+
+      // Validación simple: asegurarse de que no estén vacíos
+      if (!name || !email || !message) {
+        Swal.fire({
+          icon: 'warning',
+          title: 'Campos incompletos',
+          text: 'Por favor, completa todos los campos antes de enviar.',
+          confirmButtonColor: '#5F9ACA'
+        });
+        return;
+      }
+
+      // Mostrar alerta de éxito
+      Swal.fire({
+        icon: 'success',
+        title: '¡Datos capturados!',
+        text: 'Hemos recibido tu información correctamente.',
+        confirmButtonText: 'Cerrar',
+        confirmButtonColor: '#5F9ACA'
+      }).then(() => {
+        // Limpiar campos del formulario
+        contactForm.reset();
+        // Cerrar el modal manualmente usando la instancia de Bootstrap 5
+        const modalInstance = window.bootstrap?.Modal.getOrCreateInstance(contactModal);
+        modalInstance.hide();
+      });
+    });
+  });
+</script>

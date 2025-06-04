@@ -1,5 +1,5 @@
 .navbar.my-navbar {
-  background-color: #281E5D !important; /* azul pastel */
+  background-color: #5f9aca !important; /* azul pastel */
 }
 
 .navbar .nav-link {
@@ -8,7 +8,7 @@
 }
 
 .navbar .nav-link:hover {
-  color: #f8e59b !important; /* Amarillo pastel al pasar el mouse */
+  color: #1cf0c29d !important; /* Amarillo pastel al pasar el mouse */
 }
 
 .navbar-toggler {

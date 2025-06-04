@@ -1,53 +1,398 @@
----
-import Layout from "../layouts/Layout.astro"
-import { SITE_BASE } from "../config";
+ ---
+import Layout from "../layouts/Layout.astro";
 ---
 <Layout>
   <Fragment slot="head">
-    <title>Ejercicios</title>
+    <title>Ejercicios LSM UVP</title>
+    <!-- Incluir SweetAlert2 desde CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </Fragment>
+
   <main class="container my-4 flex-grow-1">
-    <section>
-      <h2 class="mb-3">Ejercicio: ¿Qué seña corresponde a “Ayudar”?</h2>
-      <form id="exercise-form" class="mb-3">
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="ayudar" id="opt1" value="opt1">
-          <label class="form-check-label" for="opt1"><img src={`${SITE_BASE}`+'/cuidar.jpg'} height="100px"></video></label>
+    <h1 class="text-center mb-4">Ejercicios Interactivos de LSM</h1>
+
+    <!-- Acordeón principal dividendo los módulos -->
+    <div class="accordion" id="mainAccordion">
+
+      <!-- Módulo 1: Vocabulario Básico -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingModulo1">
+          <button
+            class="accordion-button"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseModulo1"
+            aria-expanded="true"
+            aria-controls="collapseModulo1"
+          >
+            Módulo 1: Vocabulario Básico
+          </button>
+        </h2>
+        <div
+          id="collapseModulo1"
+          class="accordion-collapse collapse show"
+          aria-labelledby="headingModulo1"
+          data-bs-parent="#mainAccordion"
+        >
+          <div class="accordion-body">
+
+            <!-- Ejercicio 1 -->
+            <section class="mb-5">
+              <h3 class="mb-3">Ejercicio 1: ¿Qué seña corresponde a “Ayudar”?</h3>
+              <form id="form-ayudar" class="mb-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="ayudar" id="ayudar-opt1" value="opt1">
+                  <label class="form-check-label" for="ayudar-opt1">
+                    Levantar la palma hacia arriba
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="ayudar" id="ayudar-opt2" value="opt2">
+                  <label class="form-check-label" for="ayudar-opt2">
+                    Juntar ambas manos frente al pecho
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="ayudar" id="ayudar-opt3" value="opt3">
+                  <label class="form-check-label" for="ayudar-opt3">
+                    Señalar hacia abajo con el índice
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Verificar</button>
+              </form>
+            </section>
+
+            <!-- Ejercicio 2 -->
+            <section class="mb-5">
+              <h3 class="mb-3">Ejercicio 2: ¿Cómo se dice “Gracias” en LSM?</h3>
+              <form id="form-gracias" class="mb-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gracias" id="gracias-opt1" value="opt1">
+                  <label class="form-check-label" for="gracias-opt1">
+                    Tocar la barbilla con la palma y alejarla hacia adelante
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gracias" id="gracias-opt2" value="opt2">
+                  <label class="form-check-label" for="gracias-opt2">
+                    Levantar ambas manos a la altura de los hombros
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gracias" id="gracias-opt3" value="opt3">
+                  <label class="form-check-label" for="gracias-opt3">
+                    Mover la mano en círculo alrededor de la cabeza
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Verificar</button>
+              </form>
+            </section>
+
+            <!-- Ejercicio 3 -->
+            <section class="mb-5">
+              <h3 class="mb-3">Ejercicio 3: Selecciona la seña para “Familia”</h3>
+              <form id="form-familia" class="mb-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="familia" id="familia-opt1" value="opt1">
+                  <label class="form-check-label" for="familia-opt1">
+                    Cruzar los dedos índice y medio
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="familia" id="familia-opt2" value="opt2">
+                  <label class="form-check-label" for="familia-opt2">
+                    Formar una “F” con ambas manos y unirlas
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="familia" id="familia-opt3" value="opt3">
+                  <label class="form-check-label" for="familia-opt3">
+                    Dibujar un círculo frente al pecho con el pulgar
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Verificar</button>
+              </form>
+            </section>
+
+          </div>
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="ayudar" id="opt2" value="opt2">
-          <label class="form-check-label" for="opt2"><img src={`${SITE_BASE}`+'/ayudar.jpg'} height="100px"></label>
+      </div>
+
+      <!-- Módulo 2: Frases y Conceptos Intermedios -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingModulo2">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseModulo2"
+            aria-expanded="false"
+            aria-controls="collapseModulo2"
+          >
+            Módulo 2: Frases y Conceptos Intermedios
+          </button>
+        </h2>
+        <div
+          id="collapseModulo2"
+          class="accordion-collapse collapse"
+          aria-labelledby="headingModulo2"
+          data-bs-parent="#mainAccordion"
+        >
+          <div class="accordion-body">
+
+            <!-- Ejercicio 4 -->
+            <section class="mb-5">
+              <h3 class="mb-3">Ejercicio 4: ¿Cuál es la seña para “Casa”?</h3>
+              <form id="form-casa" class="mb-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="casa" id="casa-opt1" value="opt1">
+                  <label class="form-check-label" for="casa-opt1">
+                    Tocar la mejilla con la palma y alejarla
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="casa" id="casa-opt2" value="opt2">
+                  <label class="form-check-label" for="casa-opt2">
+                    Levantar la mano arriba de la cabeza como un techo
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="casa" id="casa-opt3" value="opt3">
+                  <label class="form-check-label" for="casa-opt3">
+                    Unir ambas manos frente al pecho formando un triángulo
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Verificar</button>
+              </form>
+            </section>
+
+            <!-- Ejercicio 5 -->
+            <section class="mb-5">
+              <h3 class="mb-3">Ejercicio 5: Selecciona la seña para “Escuchar”</h3>
+              <form id="form-escuchar" class="mb-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="escuchar" id="escuchar-opt1" value="opt1">
+                  <label class="form-check-label" for="escuchar-opt1">
+                    Llevar la mano a la oreja y girar ligeramente
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="escuchar" id="escuchar-opt2" value="opt2">
+                  <label class="form-check-label" for="escuchar-opt2">
+                    Abrir ambas manos frente a la cara
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="escuchar" id="escuchar-opt3" value="opt3">
+                  <label class="form-check-label" for="escuchar-opt3">
+                    Extender el brazo hacia afuera con la palma abierta
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Verificar</button>
+              </form>
+            </section>
+
+            <!-- Ejercicio 6 -->
+            <section class="mb-5">
+              <h3 class="mb-3">Ejercicio 6: ¿Qué seña corresponde a “Comer”?</h3>
+              <form id="form-comer" class="mb-3">
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="comer" id="comer-opt1" value="opt1">
+                  <label class="form-check-label" for="comer-opt1">
+                    Llevar la punta de los dedos a los labios
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="comer" id="comer-opt2" value="opt2">
+                  <label class="form-check-label" for="comer-opt2">
+                    Aplaudir debajo de la barbilla
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="comer" id="comer-opt3" value="opt3">
+                  <label class="form-check-label" for="comer-opt3">
+                    Frotar la palma contra el mentón hacia abajo
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary mt-3">Verificar</button>
+              </form>
+            </section>
+
+          </div>
         </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="ayudar" id="opt3" value="opt3">
-          <label class="form-check-label" for="opt3"><img src={`${SITE_BASE}`+'/aprender.jpg'} alt="" height="100px"></label>
-        </div>
-        <button type="submit" class="btn btn-primary mt-3">Verificar</button>
-      </form>
-      <p id="exercise-result" class="fw-bold"></p>
-    </section>
+      </div>
+
+    </div>
   </main>
 </Layout>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('exercise-form');
-    const result = document.getElementById('exercise-result');
-    if(form&&result)
-    form.addEventListener('submit', (e) => {
+  document.addEventListener("DOMContentLoaded", () => {
+    // Ejercicio 1: Ayudar (respuesta correcta: opt2)
+    const formAyudar = document.getElementById("form-ayudar");
+    formAyudar.addEventListener("submit", (e) => {
       e.preventDefault();
-      const sel = document.querySelector('input[name="ayudar"]:checked');
-      if (!sel) {
-        result.textContent = 'Selecciona una opción.';
-        result.className = 'text-warning fw-bold';
+      const seleccionado = document.querySelector('input[name="ayudar"]:checked');
+      if (!seleccionado) {
+        Swal.fire({
+          icon: "warning",
+          title: "Atención",
+          text: "Por favor, selecciona una opción.",
+        });
         return;
       }
-      if (sel.value === 'opt2') {
-        result.textContent = '¡Correcto!';
-        result.className = 'text-success fw-bold';
+      if (seleccionado.value === "opt2") {
+        Swal.fire({
+          icon: "success",
+          title: "¡Correcto!",
+          text: "La seña “Juntar ambas manos frente al pecho” corresponde a “Ayudar”.",
+        });
       } else {
-        result.textContent = 'Incorrecto. Intenta de nuevo.';
-        result.className = 'text-danger fw-bold';
+        Swal.fire({
+          icon: "error",
+          title: "Incorrecto",
+          text: "Intenta de nuevo. La seña correcta no es esa.",
+        });
+      }
+    });
+
+    // Ejercicio 2: Gracias (respuesta correcta: opt1)
+    const formGracias = document.getElementById("form-gracias");
+    formGracias.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const seleccionado = document.querySelector('input[name="gracias"]:checked');
+      if (!seleccionado) {
+        Swal.fire({
+          icon: "warning",
+          title: "Atención",
+          text: "Por favor, selecciona una opción.",
+        });
+        return;
+      }
+      if (seleccionado.value === "opt1") {
+        Swal.fire({
+          icon: "success",
+          title: "¡Correcto!",
+          text: "La seña “Tocar la barbilla con la palma y alejarla hacia adelante” corresponde a “Gracias”.",
+        });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Incorrecto",
+          text: "Incorrecto. Vuelve a intentarlo.",
+        });
+      }
+    });
+
+    // Ejercicio 3: Familia (respuesta correcta: opt2)
+    const formFamilia = document.getElementById("form-familia");
+    formFamilia.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const seleccionado = document.querySelector('input[name="familia"]:checked');
+      if (!seleccionado) {
+        Swal.fire({
+          icon: "warning",
+          title: "Atención",
+          text: "Por favor, selecciona una opción.",
+        });
+        return;
+      }
+      if (seleccionado.value === "opt2") {
+        Swal.fire({
+          icon: "success",
+          title: "¡Correcto!",
+          text: "La seña “Formar una ‘F’ con ambas manos y unirlas” corresponde a “Familia”.",
+        });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Incorrecto",
+          text: "Esa no es la seña correcta. Intenta otra vez.",
+        });
+      }
+    });
+
+    // Ejercicio 4: Casa (respuesta correcta: opt3)
+    const formCasa = document.getElementById("form-casa");
+    formCasa.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const seleccionado = document.querySelector('input[name="casa"]:checked');
+      if (!seleccionado) {
+        Swal.fire({
+          icon: "warning",
+          title: "Atención",
+          text: "Por favor, selecciona una opción.",
+        });
+        return;
+      }
+      if (seleccionado.value === "opt3") {
+        Swal.fire({
+          icon: "success",
+          title: "¡Correcto!",
+          text: "La seña “Unir ambas manos frente al pecho formando un triángulo” corresponde a “Casa”.",
+        });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Incorrecto",
+          text: "Intenta de nuevo. Esa opción no es la seña de “Casa”.",
+        });
+      }
+    });
+
+    // Ejercicio 5: Escuchar (respuesta correcta: opt1)
+    const formEscuchar = document.getElementById("form-escuchar");
+    formEscuchar.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const seleccionado = document.querySelector('input[name="escuchar"]:checked');
+      if (!seleccionado) {
+        Swal.fire({
+          icon: "warning",
+          title: "Atención",
+          text: "Por favor, selecciona una opción.",
+        });
+        return;
+      }
+      if (seleccionado.value === "opt1") {
+        Swal.fire({
+          icon: "success",
+          title: "¡Correcto!",
+          text: "La seña “Llevar la mano a la oreja y girar ligeramente” corresponde a “Escuchar”.",
+        });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Incorrecto",
+          text: "No es la seña correcta. Intenta otra vez.",
+        });
+      }
+    });
+
+    // Ejercicio 6: Comer (respuesta correcta: opt3)
+    const formComer = document.getElementById("form-comer");
+    formComer.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const seleccionado = document.querySelector('input[name="comer"]:checked');
+      if (!seleccionado) {
+        Swal.fire({
+          icon: "warning",
+          title: "Atención",
+          text: "Por favor, selecciona una opción.",
+        });
+        return;
+      }
+      if (seleccionado.value === "opt3") {
+        Swal.fire({
+          icon: "success",
+          title: "¡Correcto!",
+          text: "La seña “Frotar la palma contra el mentón hacia abajo” corresponde a “Comer”.",
+        });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Incorrecto",
+          text: "Esa opción no es la seña correcta. Vuelve a intentarlo.",
+        });
       }
     });
   });
